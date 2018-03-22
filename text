@@ -49,6 +49,13 @@ CREATE VIEW album_list AS
 SELECT name FROM albums
 ORDER BY name
 
+The SQL SELECT DISTINCT Statement
+The SELECT DISTINCT statement is used to return only distinct (different) values.
+Inside a table, a column often contains many duplicate values; and sometimes you only want to list the different (distinct) values.
+The SELECT DISTINCT statement is used to return only distinct (different) values.
+
+SELECT count(DISTINCT artist) FROM artist_list WHERE artist_list WHERE artist = "Aerosmith"
+
 Challenge:
 1. select the titles of all the songs on the albums "forbidden"
 SELECT songs.title FROM songs INNER JOIN albums ON songs.album = albums._id WHERE albums.name = "Forbidden"
