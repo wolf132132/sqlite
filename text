@@ -1,0 +1,24 @@
+create table contacts (name text, phone integer, email text)
+insert into contacts (name, phone, email) values('Tim', 1234567, 'tim@gmaial.com')
+INSERT INTO contacts VALUES("Brian", 1234, "brian@email.com")
+SELECT * FROM artists ORDER BY name
+SELECT * FROM albums ORDER BY name COLLATE NOCASE
+SELECT * FROM albums ORDER BY artist, name COLLATE NOCASE
+SELECT * FROM songs ORDER BY album, track
+SELECT * FROM albums WHERE _id=439
+
+SQL JOINT clause to join the table together.
+A JOIN clause is used to combine rows from two or more tables, based on a related column between them.
+https://www.w3schools.com/sql/sql_join.asp
+
+SELECT column_name(s) FROM table1 INNER JOIN table2 ON table1.column_name = table2.column_name;
+
+SELECT artists.name, albums.name FROM albums INNER JOIN artists ON albums.artist = artists._id ORDER BY artists.name;
+
+SELECT artists.name, albums.name, songs.track, songs.title from
+    INNER JOIN albums ON songs.album = albums._id
+    INNER JOIN artists ON albums.artists = artists._id
+    ORDER BY artists.name, albums.name, songs.track
+
+
+
