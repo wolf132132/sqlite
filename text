@@ -7,6 +7,12 @@ SELECT * FROM albums ORDER BY artist, name COLLATE NOCASE
 SELECT * FROM songs ORDER BY album, track
 SELECT * FROM albums WHERE _id=439
 
+#<> means not equal
+SELECT * FROM songs WHERE track <> 71
+
+#return number of how many records are in this table
+SELECT count(*) FROM songs
+
 SQL JOINT clause to join the table together.
 A JOIN clause is used to combine rows from two or more tables, based on a related column between them.
 https://www.w3schools.com/sql/sql_join.asp
@@ -14,6 +20,8 @@ https://www.w3schools.com/sql/sql_join.asp
 SELECT column_name(s) FROM table1 INNER JOIN table2 ON table1.column_name = table2.column_name;
 
 SELECT artists.name, albums.name FROM albums INNER JOIN artists ON albums.artist = artists._id ORDER BY artists.name;
+
+SELECT * FROM artist_list WHERE name LIKE "jefferson%"
 
 SELECT artists.name, albums.name, songs.track, songs.title from
     INNER JOIN albums ON songs.album = albums._id
@@ -27,3 +35,20 @@ SELECT artists.name, albums.name, songs.track, songs.title from
     WHERE albums.name LIKE "%doctor%"
     ORDER BY artists.name, albums.name, songs.track
 
+SQL CREATE VIEW Statement
+In SQL, a view is a virtual table based on the result-set of an SQL statement.
+A view contains rows and columns, just like a real table. The fields in a view are fields from one or more real tables in the database.
+You can add SQL functions, WHERE, and JOIN statements to a view and present the data as if the data were coming from one single table.
+
+CREATE VIEW view_name AS
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition;
+
+CREATE VIEW album_list AS
+SELECT name FROM albums
+ORDER BY name
+
+Challenge:
+1. select the titles of all the songs on the albums "forbidden"
+SELECT songs.title FROM songs INNER JOIN albums ON songs.album = albums._id WHERE albums.name = "Forbidden"
